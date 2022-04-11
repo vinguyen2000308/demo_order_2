@@ -1,0 +1,10 @@
+kafka:
+  bootstrapAddress: 108.136.142.140:9092
+spring:
+  kafka:
+    bootstrap-servers: 108.136.142.140:9092
+  jpa:
+    show-sql: true
+server:
+  port: 8081
+
