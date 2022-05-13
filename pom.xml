@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo_order_2</artifactId>
+    <artifactId>demo_inventory_2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo_order_2</name>
-    <description>demo_order_2</description>
+    <name>demo_inventory_2</name>
+    <description>demo_inventory_2</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -107,18 +107,22 @@
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.13.2</version>
         </dependency>
-
-
-
-
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
+
 
 </project>
