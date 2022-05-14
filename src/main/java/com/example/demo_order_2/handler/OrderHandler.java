@@ -33,6 +33,7 @@ public class OrderHandler {
 
     @KafkaListener(topics = "order-service", groupId = "group1")
     public void orderServiceHandler(String message) throws JsonProcessingException {
+        System.out.println("Received Message: " + message);
         Data data = objectMapper.readValue(message, Data.class);
         if (Objects.nonNull(data)) {
             handleMessage(data);
@@ -69,7 +70,16 @@ public class OrderHandler {
 
     private void handleCreateOrderCommand(Data data) throws JsonProcessingException {
         CreateOrderCommand createOrderCommand = objectMapper.readValue(data.getPayload(), CreateOrderCommand.class);
-        CreateOrderReply createOrderReply = orderService.createNewOrder(createOrderCommand);
+        CreateOrderReply createOrderReply;
+        try {
+             createOrderReply = orderService.createNewOrder(createOrderCommand);
+        }catch (Exception e)
+        {
+            createOrderReply = CreateOrderReply.builder()
+                    .code("400")
+                    .message(e.getMessage())
+                    .build();
+        }
         kafkaProducer.sendMessage(CreateOrderReply.class, data, createOrderReply);
 
 

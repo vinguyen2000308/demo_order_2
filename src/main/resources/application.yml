@@ -1,8 +1,8 @@
-kafka:
-  bootstrapAddress: 108.136.142.140:9092
+#kafka:
+#  bootstrapAddress: 108.136.142.140:9092
 spring:
   kafka:
-    bootstrap-servers: 108.136.142.140:9092
+    bootstrap-servers: 108.136.236.103:9092
   jpa:
     show-sql: true
 server:

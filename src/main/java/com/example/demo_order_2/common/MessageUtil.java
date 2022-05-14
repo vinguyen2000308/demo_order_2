@@ -16,6 +16,7 @@ public class MessageUtil {
         messageHeader.put("reply_to_message_id", data.getHeader().get("message_id"));
         messageHeader.put("type", replyMessage.getSimpleName());
         messageHeader.put("saga_id", data.getHeader().get("saga_id"));
+        messageHeader.put("reply_topic", data.getHeader().get("reply_topic"));
         return messageHeader;
     }
 

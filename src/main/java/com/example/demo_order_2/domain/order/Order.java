@@ -16,16 +16,19 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "orders", schema = "vinv_order")
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "created_date")
     private LocalDateTime createdDateTime;
+
     @Column(name = "modified_date")
     private LocalDateTime modifiedDate;
+
     @Column(name = "status")
     private Integer status;
 
