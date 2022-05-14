@@ -1,6 +1,5 @@
 package com.example.demo_order_2.handler;
 
-
 import com.example.demo_order_2.common.KafkaProducer;
 import com.example.demo_order_2.domain.Data;
 import com.example.demo_order_2.domain.command.CancelCreateOrderCommand;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 import static com.example.demo_order_2.common.MessageUtil.checkCommandType;
+
 
 @Component
 public class OrderHandler {
@@ -72,9 +72,8 @@ public class OrderHandler {
         CreateOrderCommand createOrderCommand = objectMapper.readValue(data.getPayload(), CreateOrderCommand.class);
         CreateOrderReply createOrderReply;
         try {
-             createOrderReply = orderService.createNewOrder(createOrderCommand);
-        }catch (Exception e)
-        {
+            createOrderReply = orderService.createNewOrder(createOrderCommand);
+        } catch (Exception e) {
             createOrderReply = CreateOrderReply.builder()
                     .code("400")
                     .message(e.getMessage())

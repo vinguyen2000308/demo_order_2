@@ -15,6 +15,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class OrderService {
 
     @Autowired
@@ -60,9 +61,10 @@ public class OrderService {
                 .build();
         Order savedOrder = orderRepo.save(order);
         Order finalSavedOrder = savedOrder;
+
         createOrderCommand.getOrderItemList().forEach(orderItem ->
         {
-            orderItem.setOrderId(finalSavedOrder.getId());
+            orderItem.setOrderId(savedOrder.getId());
             orderItemRepo.save(orderItem);
         });
         CreateOrderReply createOrderReply = CreateOrderReply.builder()
@@ -71,8 +73,8 @@ public class OrderService {
                 .message("ORDER_CREATED")
                 .build();
         return createOrderReply;
+
     }
 
+
 }
-
-
