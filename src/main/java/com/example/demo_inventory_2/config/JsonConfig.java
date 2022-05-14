@@ -1,4 +1,4 @@
-package com.example.demo_order_2.config;
+package com.example.demo_inventory_2.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -15,9 +15,10 @@ public class JsonConfig {
 
     @Bean
     public ObjectMapper objectMapper() {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-        objectMapper.setDateFormat(new SimpleDateFormat());
+        objectMapper.setDateFormat(df);
         objectMapper.findAndRegisterModules();
         return objectMapper;
     }

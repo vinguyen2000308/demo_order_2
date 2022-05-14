@@ -1,7 +1,7 @@
-package com.example.demo_order_2.common;
+package com.example.demo_inventory_2.common;
 
-import com.example.demo_order_2.domain.Command;
-import com.example.demo_order_2.domain.Data;
+import com.example.demo_inventory_2.domain.Command;
+import com.example.demo_inventory_2.domain.Data;
 
 import java.util.HashMap;
 import java.util.Map;

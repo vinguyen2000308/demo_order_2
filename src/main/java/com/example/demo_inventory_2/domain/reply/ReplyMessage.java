@@ -1,4 +1,4 @@
-package com.example.demo_order_2.domain.reply;
+package com.example.demo_inventory_2.domain.reply;
 
 public interface ReplyMessage {
     String getCode();

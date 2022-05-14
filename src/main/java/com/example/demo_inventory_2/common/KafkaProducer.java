@@ -1,7 +1,7 @@
-package com.example.demo_order_2.common;
+package com.example.demo_inventory_2.common;
 
-import com.example.demo_order_2.domain.Data;
-import com.example.demo_order_2.domain.reply.ReplyMessage;
+import com.example.demo_inventory_2.domain.Data;
+import com.example.demo_inventory_2.domain.reply.ReplyMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import static com.example.demo_order_2.common.MessageUtil.getMessageHeader;
+import static com.example.demo_inventory_2.common.MessageUtil.getMessageHeader;
 
 @Component
 public class KafkaProducer {

@@ -1,4 +1,4 @@
-package com.example.demo_order_2.domain;
+package com.example.demo_inventory_2.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
